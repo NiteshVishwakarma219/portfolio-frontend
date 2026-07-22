@@ -11,11 +11,6 @@ const API_BASE_URL = "https://portfolio-backend-zlld.onrender.com";
 /* =========================
 OPTIONAL 3D BACKGROUND (guarded)
 ========================= */
-// This block only runs if you actually add a
-// <div id="three-container"></div> to index.html and include three.js.
-// Previously this threw an error on load because the element didn't
-// exist, which silently stopped every script below it from running.
-
 const container = document.getElementById("three-container");
 
 if (container && typeof THREE !== "undefined") {
@@ -332,8 +327,10 @@ const footerBottom = document.querySelector(".footer-bottom");
 
 const year = new Date().getFullYear();
 
-footerBottom.innerHTML =
-    `© ${year} Nitesh Vishwakarma | Cloud • DevOps • Security`;
+if (footerBottom) {
+    footerBottom.innerHTML =
+        `© ${year} Nitesh Vishwakarma | Cloud • DevOps • Security`;
+}
 
 /* =========================
 CONTACT FORM -> BACKEND -> MONGODB
@@ -352,8 +349,10 @@ if (contactForm) {
         const email = document.getElementById("email").value.trim();
         const message = document.getElementById("message").value.trim();
 
-        formStatus.textContent = "Sending...";
-        formStatus.style.color = "var(--light-text)";
+        if (formStatus) {
+            formStatus.textContent = "Sending...";
+            formStatus.style.color = "var(--light-text)";
+        }
 
         try {
 
@@ -366,17 +365,23 @@ if (contactForm) {
             const data = await res.json();
 
             if (res.ok) {
-                formStatus.textContent = "Message sent! I'll get back to you soon.";
-                formStatus.style.color = "#22c55e";
+                if (formStatus) {
+                    formStatus.textContent = "Message sent! I'll get back to you soon.";
+                    formStatus.style.color = "#22c55e";
+                }
                 contactForm.reset();
             } else {
-                formStatus.textContent = data.error || "Something went wrong.";
-                formStatus.style.color = "#ef4444";
+                if (formStatus) {
+                    formStatus.textContent = data.error || "Something went wrong.";
+                    formStatus.style.color = "#ef4444";
+                }
             }
 
         } catch (err) {
-            formStatus.textContent = "Network error — please try again in a moment.";
-            formStatus.style.color = "#ef4444";
+            if (formStatus) {
+                formStatus.textContent = "Network error — please try again in a moment.";
+                formStatus.style.color = "#ef4444";
+            }
         }
     });
 }

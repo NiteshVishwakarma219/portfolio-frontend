@@ -1,658 +1,380 @@
-<!-- =========================
-FILE: index.html
-========================= -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nitesh Vishwakarma | Cloud • DevOps • Security</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nitesh Vishwakarma | Cloud & DevOps Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Three.js Library for 3D Globe & Canvas Backgrounds -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-
 <body>
 
-    <!-- =========================
-    HEADER
-    ========================= -->
-    <header class="header">
+    <!-- Subtle Background Canvas -->
+    <div id="canvas-container"></div>
 
-        <div class="logo">
-            <i class="fa-solid fa-user"></i>
-            <span>Nitesh</span>
-        </div>
-
+    <!-- Header & Navigation Bar -->
+    <header>
+        <a href="#home" class="logo"><i class="fa-solid fa-server"></i> <span>Nitesh</span>.OpsCore</a>
         <nav class="navbar">
-            <a href="#home">Home</a>
+            <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
+            <a href="#architecture">Global Traffic</a>
+            <a href="#skills">Tech Stack</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </nav>
-
-        <div class="header-btns">
-            <a href="/Nitesh_Vishwakarma_Cloud_Support_Resume.pdf" target="_blank" class="resume-btn">Resume</a>
+        <div class="menu-icon" id="menu-icon">
+            <i class="fa-solid fa-bars"></i>
         </div>
-
     </header>
 
-    <!-- =========================
-    HERO SECTION
-    ========================= -->
-    <section class="hero" id="home">
-
-        <div class="hero-left">
-
-            <h1>
-                Hi, I'm <span>Nitesh Vishwakarma</span>
-            </h1>
-
-            <h2>
-                Cloud Engineer • DevOps Enthusiast • SOC Analyst
-            </h2>
-
-            <p>
-                Passionate about Cloud Infrastructure, DevOps Automation,
-                Cyber Security, SOC Operations, Linux Administration,
-                Cloud Security, Networking, and AI-driven Security Solutions.
-                Focused on building scalable, secure, and production-ready systems.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#projects" class="primary-btn">
-                    View Projects
-                </a>
-
-                <a href="#contact" class="secondary-btn">
-                    Contact Me
-                </a>
+    <!-- Home / Hero Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <div class="status-chip"><i class="fa-solid fa-cloud-arrow-up"></i> Cloud Infrastructure & DevOps Specialist</div>
+            <h1>Nitesh Vishwakarma</h1>
+            <h3>Deploying as a <span class="typewriter-text" id="typewriter"></span><span class="cursor">|</span></h3>
+            <p class="hero-highlight-text">Architecting resilient cloud ecosystems, multi-cluster Kubernetes deployments, and automated CI/CD pipelines centered around ultra-low latency and high availability.</p>
+            
+            <div class="social-media">
+                <a href="https://linkedin.com/in/nitesh1vishwakarma" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/NiteshVishwakarma219" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.instagram.com/niteshvishwakarma_1" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/nitesh_vishwa1" target="_blank"><i class="fa-brands fa-twitter"></i></a>
             </div>
 
-            <div class="hero-stats">
-
-                <div class="stat-card">
-                    <h3>9+</h3>
-                    <p>Major Projects</p>
-                </div>
-
-                <div class="stat-card">
-                    <h3>AWS</h3>
-                    <p>Cloud Focused</p>
-                </div>
-
-                <div class="stat-card">
-                    <h3>24/7</h3>
-                    <p>Learning Mode</p>
-                </div>
-
+            <div class="hero-btns">
+                <a href="/Nitesh_Vishwakarma_Cloud_Support_Resume.pdf" target="_blank" class="btn"><i class="fa-solid fa-file-arrow-down"></i> Download CV</a>
+                <a href="#architecture" class="btn secondary-btn"><i class="fa-solid fa-earth-americas"></i> View Global Traffic</a>
             </div>
-
         </div>
 
-        <div class="hero-right">
-
-            <div class="hero-image-box">
-
-                <div class="circle circle1"></div>
-
-                <div class="circle circle2"></div>
-
-
-                <img src="Images/personal-photo.jpg" alt="profile">
-
-
-
+        <!-- Photo with Rotating Animation -->
+        <div class="home-img">
+            <div class="orbit-container">
+                <div class="orbit-ring"></div>
+                <div class="orbit-ring-2"></div>
+                <div class="img-box">
+                    <img src="Images/personal-photo.jpg" alt="Nitesh Vishwakarma">
+                </div>
             </div>
-
         </div>
-
     </section>
 
-    <!-- =========================
-    ABOUT SECTION
-    ========================= -->
+    <!-- About Section with 3D Orbit Animation, Outside Glow & Professional Tone -->
     <section class="about" id="about">
-
-        <div class="section-title">
-            <span>ABOUT ME</span>
-            <h2>Building Secure & Scalable Infrastructure</h2>
-        </div>
-
-        <div class="about-container">
-
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop"
-                    alt="">
-            </div>
-
-            <div class="about-content">
-
-                <h3>
-                    Aspiring Cloud & DevOps Engineer with Security Knowledge
-                </h3>
-
-                <p>
-                    I am currently pursuing BCA in Cloud & Security and actively
-                    building strong hands-on projects in AWS Cloud, Linux,
-                    DevOps Automation, Docker, CI/CD, Networking, SIEM,
-                    SOC Monitoring, and Cloud Security.
-                </p>
-
-                <p>
-                    My main focus is Cloud Computing and Infrastructure.
-                    I also integrate DevOps practices and Security Operations
-                    concepts to build production-ready environments.
-                </p>
-
-                <div class="about-grid">
-
-                    <div class="about-card">
-                        <i class="fa-solid fa-cloud"></i>
-                        <h4>Cloud Computing</h4>
-                        <p>AWS EC2, IAM, S3, VPC, Cloud Security</p>
-                    </div>
-
-                    <div class="about-card">
-                        <i class="fa-solid fa-server"></i>
-                        <h4>DevOps</h4>
-                        <p>Docker, GitHub, Linux, CI/CD Pipelines</p>
-                    </div>
-
-                    <div class="about-card">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h4>Security</h4>
-                        <p>SOC Monitoring, SIEM, Log Analysis</p>
-                    </div>
-
-                    <div class="about-card">
-                        <i class="fa-solid fa-network-wired"></i>
-                        <h4>Networking</h4>
-                        <p>TCP/IP, DNS, Routing, Firewalls</p>
-                    </div>
-
+        <div class="about-img">
+            <div class="orbit-container">
+                <div class="orbit-ring"></div>
+                <div class="orbit-ring-2"></div>
+                <div class="img-box about-glow-effect">
+                    <img src="Images/personal-photo.jpg" alt="About Nitesh">
                 </div>
-
             </div>
-
         </div>
-
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>Enterprise Cloud Systems & Automation Engineer</h3>
+            <p><span class="highlight-lead">Results-driven Cloud and DevOps engineer specializing in infrastructure as code, container orchestration, and high-performance continuous integration pipelines.</span> Proven capability in designing, deploying, and maintaining fault-tolerant distributed cloud environments across enterprise infrastructures.</p>
+            <p>Pursuing a Bachelor of Computer Applications in Cloud Computing and Security at Amity University Online, coupling rigorous academic foundations with advanced implementation of automated provisioning workflows, microservices architectures, and deep system telemetry analysis.</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
     </section>
 
-    <!-- =========================
-    SKILLS SECTION
-    ========================= -->
-    <section class="skills" id="skills">
-
-        <div class="section-title">
-            <span>SKILLS</span>
-            <h2>Technical Expertise</h2>
+    <!-- GLOBAL TRAFFIC & INTERACTIVE 3D GLOBE SECTION -->
+    <section class="architecture-section" id="architecture">
+        <div class="heading">
+            <span>GLOBAL TELEMETRY & ROUTING</span>
+            <h2>Global Traffic & Controller Server Flow</h2>
         </div>
-
-        <div class="skills-container">
-
-            <div class="skill-box">
-                <i class="fa-brands fa-aws"></i>
-                <h3>Cloud</h3>
-
-                <ul>
-                    <li>AWS EC2</li>
-                    <li>S3</li>
-                    <li>IAM</li>
-                    <li>VPC</li>
-                    <li>Cloud Security</li>
-                    <li>Linux Server Hosting</li>
-                </ul>
-            </div>
-
-            <div class="skill-box">
-                <i class="fa-solid fa-code"></i>
-                <h3>DevOps</h3>
-
-                <ul>
-                    <li>Docker</li>
-                    <li>Git & GitHub</li>
-                    <li>CI/CD</li>
-                    <li>Shell Scripting</li>
-                    <li>Linux</li>
-                    <li>Automation</li>
-                </ul>
-            </div>
-
-            <div class="skill-box">
-                <i class="fa-solid fa-shield"></i>
-                <h3>Cyber Security</h3>
-
-                <ul>
-                    <li>Splunk</li>
-                    <li>Microsoft Sentinel</li>
-                    <li>SIEM</li>
-                    <li>Threat Detection</li>
-                    <li>Incident Response</li>
-                    <li>Log Monitoring</li>
-                </ul>
-            </div>
-
-            <div class="skill-box">
-                <i class="fa-solid fa-terminal"></i>
-                <h3>Programming</h3>
-
-                <ul>
-                    <li>Python</li>
-                    <li>Bash</li>
-                    <li>C Language</li>
-                    <li>HTML/CSS</li>
-                    <li>JavaScript</li>
-                    <li>Automation Scripts</li>
-                </ul>
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-    PROJECTS SECTION
-    ========================= -->
-    <section class="projects" id="projects">
-
-        <div class="section-title">
-            <span>PROJECTS</span>
-            <h2>Featured Technical Projects</h2>
-        </div>
-
-        <!-- CLOUD PROJECTS -->
-        <div class="project-category">
-            <h3>☁ Cloud Projects</h3>
-
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>AWS Auto Scaling Web App</h4>
-                        <p>
-                            Designed scalable cloud architecture using EC2,
-                            Load Balancer, Auto Scaling, and S3 integration.
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href="https://github.com/NiteshVishwakarma219/aws-auto-healing-architecture.git/"
-                                target="_blank" class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1451187863213-d1bcbaae3fa3?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>Cloud Infrastructure Monitoring</h4>
-                        <p>
-                            Real-time monitoring system for AWS resources
-                            using logs, automation, and security alerts.
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href=" https://github.com/NiteshVishwakarma219/aws-cloud-monitoring-system.git/"
-                                target="_blank" class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>AWS Secure Hosting Platform</h4>
-                        <p>
-                            Hosted Linux servers with IAM security,
-                            networking setup, and cloud hardening.
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href=" https://github.com/NiteshVishwakarma219/aws-secure-vpc-architecture.git/
-" target="_blank" class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- DEVOPS PROJECTS -->
-        <div class="project-category">
-            <h3>⚙ DevOps Projects</h3>
-
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>Dockerized Web Application</h4>
-                        <p>
-                            Containerized applications using Docker with
-                            Linux deployment and automation.
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href=" https://github.com/NiteshVishwakarma219/docker-microservices-app.git/"
-                                target="_blank" class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>CI/CD Pipeline Project</h4>
-                        <p>
-                            Automated deployment workflows using GitHub,
-                            Linux scripting, and deployment automation.
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href=" https://github.com/NiteshVishwakarma219/aws-cicd-pipeline.git/" target="_blank"
-                                class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>Infrastructure as Code (Terraform on AWS)</h4>
-                        <p>
-                            Automated AWS infrastructure provisioning using Terraform (EC2, VPC, S3, Security Groups)
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href=" https://github.com/NiteshVishwakarma219/aws-terraform-infrastructure.git/"
-                                target="_blank" class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- SOC PROJECTS -->
-        <div class="project-category">
-            <h3>🛡 SOC & Security Projects</h3>
-
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>SOC Monitoring Lab</h4>
-                        <p>
-                            Built a SOC home lab using Splunk,
-                            Linux, and Windows event monitoring.
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href="https://github.com/NiteshVishwakarma219/SOC-Home-Lab.git" target="_blank"
-                                class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>Threat Detection Dashboard</h4>
-                        <p>
-                            Real-time SIEM dashboard for analyzing
-                            logs and detecting suspicious activities.
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href="https://github.com/NiteshVishwakarma219/Threat-Detection-Engineering.git"
-                                target="_blank" class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?q=80&w=1200&auto=format&fit=crop"
-                        alt="">
-                    <div class="project-content">
-                        <h4>Wireshark Traffic Analysis</h4>
-                        <p>
-                            Network packet analysis and attack
-                            detection using Wireshark.
-                        </p>
-                        <div class="project-buttons">
-
-                            <a href="https://github.com/NiteshVishwakarma219/Wireshark-Network-Analysis.git"
-                                target="_blank" class="github-btn">
-
-                                <i class="fab fa-github"></i>
-                                GitHub
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-    EXPERIENCE
-    ========================= -->
-    <section class="experience" id="experience">
-
-        <div class="section-title">
-            <span>EXPERIENCE</span>
-            <h2>Learning Journey & Hands-on Practice</h2>
-        </div>
-
-        <div class="timeline">
-
-            <div class="timeline-box">
-                <h3>Cloud Computing Practice</h3>
-                <span>2025 - Present</span>
-                <p>
-                    Built AWS cloud labs including EC2 deployment,
-                    Linux hosting, networking setup, IAM policies,
-                    and cloud security implementations.
-                </p>
-            </div>
-
-            <div class="timeline-box">
-                <h3>DevOps Learning & Automation</h3>
-                <span>2025 - Present</span>
-                <p>
-                    Worked on Linux automation, Docker containers,
-                    shell scripting, GitHub repositories, and
-                    CI/CD concepts.
-                </p>
-            </div>
-
-            <div class="timeline-box">
-                <h3>SOC & Security Operations</h3>
-                <span>2024 - Present</span>
-                <p>
-                    Practiced SIEM monitoring, log analysis,
-                    incident response workflows, and threat detection
-                    using Splunk and Microsoft Sentinel.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-    CONTACT SECTION
-    ========================= -->
-    <section class="contact" id="contact">
-
-        <div class="section-title">
-            <span>CONTACT</span>
-            <h2>Let's Connect</h2>
-        </div>
-
-        <div class="contact-container">
-
-            <div class="contact-left">
-
-                <h3>
-                    Interested in Cloud, DevOps, or Security Roles?
-                </h3>
-
-                <p>
-                    I am actively learning and building practical
-                    projects in Cloud Infrastructure, DevOps,
-                    Linux Administration, Networking, and Security.
-                </p>
-
-                <div class="contact-info">
-
-                    <div>
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>niteshvishwakarma8574@gmail.com</span>
-                    </div>
-
-                    <div>
-                        <i class="fa-solid fa-phone"></i>
-                        <span>+91 8574591701</span>
-                    </div>
-
-                    <div>
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span>https://linkedin.com/in/nitesh1vishwakarma</span>
-                    </div>
-
-                    <div>
-                        <i class="fa-brands fa-github"></i>
-                        <span> https://github.com/NiteshVishwakarma219</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="contact-right">
-
-                <<form id="contactForm">
-
-    <input type="text" id="name" placeholder="Your Name" required>
-
-    <input type="email" id="email" placeholder="Your Email" required>
-
-    <textarea id="message" rows="6" placeholder="Message" required></textarea>
-
-    <button type="submit">
-        Send Message
-    </button>
-
-    <p id="formStatus" style="margin-top:10px;font-size:0.9rem;"></p>
-
-</form>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- =========================
-    FOOTER
-    ========================= -->
-    <footer class="footer">
-
-        <h2>Nitesh Vishwakarma</h2>
-
-        <p>
-            Cloud • DevOps • Security • Linux • Networking
+        <p class="arch-intro-text">
+            Interactive control map tracking live traffic requests originating globally and traversing security layers down to the core Mumbai server controller (<code style="color:var(--main-color);">ap-south-1</code>):
         </p>
 
-        <div class="footer-icons">
-
-            <a href="https://linkedin.com/in/nitesh1vishwakarma" target="_blank"><i class="fab fa-linkedin"></i></a>
-
-            <a href="https://github.com/NiteshVishwakarma219" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-
-            <a href="https://www.instagram.com/niteshvishwakarma_1?utm_source=qr&igsh=dHBqMTJ3M3E2bmd3" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-
-            <a href="https://x.com/nitesh_vishwa1" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-
+        <!-- Dynamic Vibrant Global Traffic Visual Dashboard -->
+        <div class="globe-dashboard-box">
+            <div class="globe-hud-overlay">
+                <div class="hud-item"><span>Controller Server Node</span><strong>AWS Mumbai (ap-south-1)</strong></div>
+                <div class="hud-item"><span>Active Global Traffic</span><strong id="live-requests">1,482 req/sec</strong></div>
+                <div class="hud-item"><span>Server Status</span><span class="pulse-badge"><span class="pulse-dot"></span> Online</span></div>
+            </div>
+            
+            <!-- Bright Visual Traffic Lines Canvas Container -->
+            <div id="globe-container"></div>
         </div>
 
-        <div class="footer-bottom">
-            © 2026 All Rights Reserved
+        <!-- 4-Layer Traffic Transition Breakdown -->
+        <div class="traffic-flow-container">
+            <div class="flow-step-box">
+                <div class="step-icon-badge"><i class="fa-solid fa-globe"></i></div>
+                <h3>1. Anycast DNS & Edge</h3>
+                <p>Global client traffic lines resolve via Route 53 to the nearest Edge POP location worldwide.</p>
+                <div class="live-ping-tag"><span class="pulse-dot"></span> Route 53 Active</div>
+            </div>
+
+            <div class="flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <div class="flow-step-box security-box">
+                <div class="step-icon-badge"><i class="fa-solid fa-shield-halved"></i></div>
+                <h3>2. WAF & DDoS Shield</h3>
+                <p>Incoming traffic lines pass through AWS WAF and CloudFront security filters to drop malicious payloads.</p>
+                <div class="security-tag"><i class="fa-solid fa-lock"></i> TLS Terminated</div>
+            </div>
+
+            <div class="flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <div class="flow-step-box">
+                <div class="step-icon-badge"><i class="fa-solid fa-network-wired"></i></div>
+                <h3>3. Application Load Balancer</h3>
+                <p>Traffic lands in Mumbai (`ap-south-1`) VPC, distributed across multiple Availability Zones by ALBs.</p>
+                <div class="live-ping-tag success"><i class="fa-solid fa-check"></i> Multi-AZ Balanced</div>
+            </div>
+
+            <div class="flow-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+
+            <div class="flow-step-box">
+                <div class="step-icon-badge"><i class="fa-solid fa-cubes"></i></div>
+                <h3>4. Controller Clusters</h3>
+                <p>Requests route to ECS, AKS, or Kubernetes worker nodes querying secure RDS and DynamoDB instances.</p>
+                <div class="live-ping-tag db"><i class="fa-solid fa-bolt"></i> Private Subnet Active</div>
+            </div>
         </div>
 
+        <!-- Terminal Diagnostic Window -->
+        <div class="ops-terminal-wrapper">
+            <div class="ops-header">
+                <h3><i class="fa-solid fa-terminal"></i> Controller Server Diagnostics Console</h3>
+                <div class="terminal-dots">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                </div>
+            </div>
+            <div class="terminal-window">
+                <div class="terminal-line"><span class="t-prompt">$</span> terraform apply -auto-approve</div>
+                <div class="terminal-line t-output">aws_vpc.production_vpc: Creating... [id=vpc-081f84b]</div>
+                <div class="terminal-line t-output">aws_eks_cluster.mumbai_cluster: Provisioning controller in ap-south-1...</div>
+                <div class="terminal-line t-success">Apply complete! Resources: 14 added, 0 changed, 0 destroyed.</div>
+                <div class="terminal-line cursor-blink"><span class="t-prompt">$</span> kubectl get pods -n production --watch</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with Score Bars -->
+    <section class="skills" id="skills">
+        <h2 class="heading">Technical <span>Skill Matrix</span></h2>
+        <p class="arch-intro-text">Quantified mastery levels across Cloud Platforms, DevOps orchestration tools, and core languages.</p>
+
+        <div class="skills-wrapper">
+            <!-- Column 1: Core Cloud & AWS -->
+            <div class="skill-column">
+                <h3 class="title"><i class="fa-brands fa-aws"></i> AWS Cloud Services</h3>
+                <div class="skill-bar">
+                    <div class="info"><span>VPC, Route53, S3 & RDS</span><span>94%</span></div>
+                    <div class="progress-line" style="--val: 94%;"><span></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><span>Lambda & DynamoDB (Serverless)</span><span>90%</span></div>
+                    <div class="progress-line" style="--val: 90%;"><span></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><span>ECS & CloudWatch Monitoring</span><span>88%</span></div>
+                    <div class="progress-line" style="--val: 88%;"><span></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><span>CloudFormation & IaC</span><span>86%</span></div>
+                    <div class="progress-line" style="--val: 86%;"><span></span></div>
+                </div>
+            </div>
+
+            <!-- Column 2: DevOps & Containers -->
+            <div class="skill-column">
+                <h3 class="title"><i class="fa-solid fa-gears"></i> DevOps & Automation</h3>
+                <div class="skill-bar">
+                    <div class="info"><span>Docker & Containerization</span><span>92%</span></div>
+                    <div class="progress-line" style="--val: 92%;"><span></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><span>Kubernetes & AKS</span><span>89%</span></div>
+                    <div class="progress-line" style="--val: 89%;"><span></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><span>Terraform</span><span>90%</span></div>
+                    <div class="progress-line" style="--val: 90%;"><span></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><span>Jenkins & CI/CD Pipelines</span><span>87%</span></div>
+                    <div class="progress-line" style="--val: 87%;"><span></span></div>
+                </div>
+            </div>
+
+            <!-- Column 3: Systems & Languages -->
+            <div class="skill-column" style="grid-column: span 2;">
+                <h3 class="title"><i class="fa-solid fa-code"></i> Linux, Git & Programming</h3>
+                <div class="skill-bar">
+                    <div class="info"><span>Linux Server Admin & Hardening</span><span>93%</span></div>
+                    <div class="progress-line" style="--val: 93%;"><span></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><span>Git & GitHub Version Control</span><span>95%</span></div>
+                    <div class="progress-line" style="--val: 95%;"><span></span></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="info"><span>Python / Bash Scripting / JavaScript</span><span>85%</span></div>
+                    <div class="progress-line" style="--val: 85%;"><span></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Projects Section -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">Featured <span>Repositories</span></h2>
+        <p class="arch-intro-text">Production-ready cloud automation repositories and microservices architectures.</p>
+
+        <div class="portfolio-container">
+            <!-- Project 1 -->
+            <div class="portfolio-box">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" alt="Kubernetes Cluster">
+                <div class="portfolio-layer">
+                    <h4>K8s Multi-Cluster DevOps</h4>
+                    <p>Automated microservices deployment on Kubernetes with automated scaling.</p>
+                    <a href="https://github.com/NiteshVishwakarma219" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="portfolio-box">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1200&auto=format&fit=crop" alt="Terraform AWS">
+                <div class="portfolio-layer">
+                    <h4>Terraform AWS Infrastructure</h4>
+                    <p>Declarative cloud stack provisioning with VPC, RDS, and ECS modules.</p>
+                    <a href="https://github.com/NiteshVishwakarma219" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="portfolio-box">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" alt="Jenkins Pipeline">
+                <div class="portfolio-layer">
+                    <h4>Jenkins CI/CD Automation</h4>
+                    <p>End-to-end automated testing, container build, and deployment pipelines.</p>
+                    <a href="https://github.com/NiteshVishwakarma219" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="portfolio-box">
+                <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?q=80&w=1200&auto=format&fit=crop" alt="Docker Microservices">
+                <div class="portfolio-layer">
+                    <h4>Dockerized Microservices App</h4>
+                    <p>Multi-container Docker architecture with persistent storage volumes.</p>
+                    <a href="https://github.com/NiteshVishwakarma219" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="portfolio-box">
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=1200&auto=format&fit=crop" alt="AWS Lambda Serverless">
+                <div class="portfolio-layer">
+                    <h4>Serverless Lambda & DynamoDB</h4>
+                    <p>Event-driven serverless backend architecture scaled with API Gateway.</p>
+                    <a href="https://github.com/NiteshVishwakarma219" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="portfolio-box">
+                <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?q=80&w=1200&auto=format&fit=crop" alt="CloudWatch Monitoring">
+                <div class="portfolio-layer">
+                    <h4>CloudWatch Telemetry System</h4>
+                    <p>Custom metric dashboards and automated alerting for AWS cloud resources.</p>
+                    <a href="https://github.com/NiteshVishwakarma219" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="more-projects-btn-wrap">
+            <a href="https://github.com/NiteshVishwakarma219?tab=repositories" target="_blank" class="btn secondary-btn">
+                <i class="fa-brands fa-github"></i> Click For More Projects on GitHub
+            </a>
+        </div>
+    </section>
+
+    <!-- Education Journey with Timeline Travel Line -->
+    <section class="education" id="education">
+        <h2 class="heading">Academic <span>Journey</span></h2>
+        <p class="arch-intro-text">Academic milestones and educational qualifications.</p>
+
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2024 – 2027</div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Computer Applications (BCA)</h3>
+                    <h4>Specialization: Cloud Computing & Security | Amity University Online</h4>
+                    <p>Current SGPA: <strong>8.45</strong></p>
+                    <p>Advanced coursework in cloud architectures, secure systems design, and full-stack software development.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2023 – 2024</div>
+                <div class="timeline-content">
+                    <h3>Class XII — CBSE Board</h3>
+                    <h4>Higher Secondary Education</h4>
+                    <p>Percentage: <strong>90%</strong></p>
+                    <p>Completed core studies focusing on mathematics and computer sciences.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">2021 – 2022</div>
+                <div class="timeline-content">
+                    <h3>Class X — CBSE Board</h3>
+                    <h4>Secondary School Education</h4>
+                    <p>Percentage: <strong>91%</strong></p>
+                    <p>Established a strong academic foundation in analytical reasoning and problem-solving.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Get In <span>Touch</span></h2>
+
+        <form id="contactForm">
+            <div class="input-box">
+                <input type="text" id="name" placeholder="Sender Name" required>
+                <input type="email" id="email" placeholder="Sender Email" required>
+            </div>
+            <div class="input-box">
+                <input type="number" placeholder="Mobile Contact">
+                <input type="text" placeholder="Subject / Inquiry">
+            </div>
+            <textarea id="message" cols="30" rows="10" placeholder="Enter your message..." required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+            <p id="formStatus" style="margin-top: 10px; font-size: 1.4rem;"></p>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 Nitesh Vishwakarma | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#home"><i class="fa-solid fa-angle-up"></i></a>
+        </div>
     </footer>
 
-    <!-- JS -->
     <script src="script.js"></script>
-
 </body>
-
 </html>

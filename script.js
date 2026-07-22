@@ -6,7 +6,7 @@ FILE: script.js
 CHANGE ME AFTER YOU DEPLOY THE BACKEND
 ========================= */
 
-const API_BASE_URL = "https://portfolio-backend-zlld.onrender.com/";
+const API_BASE_URL = "https://portfolio-backend-zlld.onrender.com";
 
 /* =========================
 OPTIONAL 3D BACKGROUND (guarded)

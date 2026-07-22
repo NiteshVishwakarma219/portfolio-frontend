@@ -80,10 +80,10 @@ TYPING EFFECT
 ========================= */
 const typingTexts = [
     "Cloud Engineer",
-    "DevOps Enthusiast",
-    "SOC Analyst",
+    "DevOps Engineer",
     "Linux Administrator",
-    "Cloud Security Learner"
+    "SRE",
+    "System Engineer"
 ];
 
 let textIndex = 0;

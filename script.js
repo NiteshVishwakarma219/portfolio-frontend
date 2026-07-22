@@ -5,63 +5,58 @@ FILE: script.js
 const API_BASE_URL = "https://portfolio-backend-zlld.onrender.com";
 
 /* =========================
-OPTIONAL 3D BACKGROUND (guarded)
+/* =========================
+GLOBAL TELEMETRY 3D GLOBE
 ========================= */
-const container = document.getElementById("three-container");
+const globeContainer = document.getElementById("globe-container");
 
-if (container && typeof THREE !== "undefined") {
-    const scene = new THREE.Scene();
+if (globeContainer && typeof THREE !== "undefined") {
+    const globeScene = new THREE.Scene();
 
-    const camera = new THREE.PerspectiveCamera(
-        75,
-        container.clientWidth / container.clientHeight,
+    const globeCamera = new THREE.PerspectiveCamera(
+        60,
+        globeContainer.clientWidth / globeContainer.clientHeight,
         0.1,
         1000
     );
 
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setSize(400, 400);
-    container.appendChild(renderer.domElement);
+    const globeRenderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    globeRenderer.setSize(globeContainer.clientWidth || 500, 400);
+    globeContainer.appendChild(globeRenderer.domElement);
 
-    const geometry = new THREE.SphereGeometry(0.3, 16, 16);
+    // Create wireframe globe representing Controller Server network
+    const globeGeometry = new THREE.SphereGeometry(2, 32, 32);
+    const globeMaterial = new THREE.MeshBasicMaterial({
+        color: 0x38bdf8,
+        wireframe: true,
+        transparent: true,
+        opacity: 0.3
+    });
+    const globeMesh = new THREE.Mesh(globeGeometry, globeMaterial);
+    globeScene.add(globeMesh);
 
-    const materials = [
-        new THREE.MeshBasicMaterial({ color: 0x38bdf8 }),
-        new THREE.MeshBasicMaterial({ color: 0x7c3aed }),
-        new THREE.MeshBasicMaterial({ color: 0x22c55e })
-    ];
+    // Add glowing data point nodes on the globe (representing AWS regions / traffic origins)
+    const nodeGeometry = new THREE.SphereGeometry(0.08, 8, 8);
+    const nodeMaterial = new THREE.MeshBasicMaterial({ color: 0x22c55e });
+    
+    for (let i = 0; i < 15; i++) {
+        const node = new THREE.Mesh(nodeGeometry, nodeMaterial);
+        const phi = Math.acos(-1 + (2 * Math.random()));
+        const theta = Math.sqrt(Math.PI * 2) * Math.random();
 
-    const spheres = [];
-
-    for (let i = 0; i < 20; i++) {
-        const mesh = new THREE.Mesh(
-            geometry,
-            materials[Math.floor(Math.random() * materials.length)]
-        );
-
-        mesh.position.x = (Math.random() - 0.5) * 10;
-        mesh.position.y = (Math.random() - 0.5) * 10;
-        mesh.position.z = (Math.random() - 0.5) * 10;
-
-        scene.add(mesh);
-        spheres.push(mesh);
+        node.position.setFromSphericalCoords(2, phi, theta);
+        globeScene.add(node);
     }
 
-    camera.position.z = 8;
+    globeCamera.position.z = 5;
 
-    function animate() {
-        requestAnimationFrame(animate);
-
-        spheres.forEach((s, i) => {
-            s.rotation.x += 0.01;
-            s.rotation.y += 0.01;
-            s.position.y += Math.sin(Date.now() * 0.001 + i) * 0.002;
-        });
-
-        renderer.render(scene, camera);
+    function animateGlobe() {
+        requestAnimationFrame(animateGlobe);
+        globeMesh.rotation.y += 0.003;
+        globeRenderer.render(globeScene, globeCamera);
     }
 
-    animate();
+    animateGlobe();
 }
 
 /* =========================

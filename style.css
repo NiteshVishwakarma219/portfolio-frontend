@@ -140,6 +140,10 @@ header {
     text-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
 }
 
+.hero-left h2 {
+    min-height: 1.5em; /* Keeps the layout stable when text is empty */
+}
+
 .cursor {
     color: var(--main-color);
     animation: blink 0.7s infinite;

@@ -88,9 +88,9 @@ const typingTexts = [
 
 let textIndex = 0;
 let charIndex = 0;
-const heroTitle = document.querySelector(".hero-left h2");
 
 function typeEffect() {
+    const heroTitle = document.getElementById("typewriter");
     if (!heroTitle) return;
 
     if (charIndex < typingTexts[textIndex].length) {
@@ -103,6 +103,7 @@ function typeEffect() {
 }
 
 function eraseEffect() {
+    const heroTitle = document.getElementById("typewriter");
     if (!heroTitle) return;
 
     if (charIndex > 0) {
@@ -119,6 +120,7 @@ function eraseEffect() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    const heroTitle = document.getElementById("typewriter");
     if (typingTexts.length && heroTitle) {
         setTimeout(typeEffect, 1000);
     }

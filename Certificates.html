@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates & Documents | Nitesh Vishwakarma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <!-- Subtle Background Canvas (same animated network as the main site) -->
+    <div id="canvas-container"></div>
+
+    <!-- Header & Navigation Bar -->
+    <header>
+        <a href="index.html#home" class="logo"><i class="fa-solid fa-server"></i> <span>Nitesh</span></a>
+        <nav class="navbar">
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Tech Stack</a>
+            <a href="index.html#certificates">Certificates</a>
+            <a href="index.html#portfolio">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <div class="menu-icon" id="menu-icon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="cert-page" style="padding-top: 14rem;">
+        <div class="cert-page-header">
+            <a href="index.html#certificates" class="back-to-site"><i class="fa-solid fa-arrow-left"></i> Back to portfolio</a>
+            <h2 class="heading">All <span>Certificates & Documents</span></h2>
+            <p class="arch-intro-text">Every academic marksheet and course certificate, in one place. Click any item to view it full-size.</p>
+        </div>
+
+        <div class="cert-page-grid">
+
+            <div class="cert-grid-item" data-img="Documents/png_output/X-1.png" data-name="Class 10th Marksheet">
+                <div class="cert-thumb">
+                    <img src="Documents/png_output/X-1.png" alt="Class 10th Marksheet" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="cert-placeholder"><i class="fa-solid fa-file-image"></i><span>Add image</span></div>
+                </div>
+                <p class="cert-name">Class 10th Marksheet</p>
+            </div>
+
+            <div class="cert-grid-item" data-img="Documents/png_output/XII_-1.png" data-name="Class 12th Marksheet">
+                <div class="cert-thumb">
+                    <img src="Documents/png_output/XII_-1.png" alt="Class 12th Marksheet" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="cert-placeholder"><i class="fa-solid fa-file-image"></i><span>Add image</span></div>
+                </div>
+                <p class="cert-name">Class 12th Marksheet</p>
+            </div>
+
+            <div class="cert-grid-item" data-img="Documents/png_output/Amity_Online-1.png" data-name="College ID Card">
+                <div class="cert-thumb">
+                    <img src="Documents/png_output/Amity_Online-1.png" alt="College ID Card" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="cert-placeholder"><i class="fa-solid fa-file-image"></i><span>Add image</span></div>
+                </div>
+                <p class="cert-name">College ID Card</p>
+            </div>
+
+            <div class="cert-grid-item" data-img="Documents/png_output/aws-1.png" data-name="AWS Certification">
+                <div class="cert-thumb">
+                    <img src="Documents/png_output/aws-1.png" alt="AWS Certification" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="cert-placeholder"><i class="fa-solid fa-file-image"></i><span>Add image</span></div>
+                </div>
+                <p class="cert-name">AWS Certification</p>
+            </div>
+
+            <div class="cert-grid-item" data-img="Documents/png_output/AWS_Cloud_Practitioner_Essentials-1.png" data-name="Cloud Computing Certificate">
+                <div class="cert-thumb">
+                    <img src="Documents/png_output/AWS_Cloud_Practitioner_Essentials-1.png" alt="Cloud Computing Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="cert-placeholder"><i class="fa-solid fa-file-image"></i><span>Add image</span></div>
+                </div>
+                <p class="cert-name">Cloud Computing Certificate</p>
+            </div>
+
+            <div class="cert-grid-item" data-img="Documents/png_output/Nitesh_Vishwakarma_289080-1.png" data-name="Internship Certificate">
+                <div class="cert-thumb">
+                    <img src="Documents/png_output/Nitesh_Vishwakarma_289080-1.png" alt="Internship Certificate" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="cert-placeholder"><i class="fa-solid fa-file-image"></i><span>Add image</span></div>
+                </div>
+                <p class="cert-name">Internship Certificate</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2026 Nitesh Vishwakarma | All Rights Reserved.</p>
+        </div>
+        <div class="footer-iconTop">
+            <a href="#"><i class="fa-solid fa-angle-up"></i></a>
+        </div>
+    </footer>
+
+    <!-- Lightbox for enlarged view -->
+    <div id="cert-lightbox">
+        <span class="cert-lightbox-close" id="cert-lightbox-close">&times;</span>
+        <img id="cert-lightbox-img" src="" alt="">
+        <p id="cert-lightbox-caption"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -118,11 +118,12 @@ if (menuIcon && navbar) {
 TYPING EFFECT
 ========================= */
 const typingTexts = [
-    "Cloud Engineer",
-    "Cloud Security Engineer",
-    "DevOps Engineer",
+    "Cloud Support Engineer",
+    "Technical Support Associate",
+    "Business Operations Associate",
+    "MIS & Reporting Associate",
     "Linux Administrator",
-    "SRE"
+    "Cloud Engineer"
 ];
 
 let textIndex = 0;
@@ -247,77 +248,6 @@ if (footerText) {
     footerText.innerHTML = `Copyright &copy; ${year} Nitesh Vishwakarma | All Rights Reserved.`;
 }
 
-/* =========================
-CONTACT FORM -> BACKEND -> MONGODB
-========================= */
-const contactForm = document.getElementById("contactForm");
-const formStatus = document.getElementById("formStatus");
-
-if (contactForm) {
-    contactForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const nameInput = document.getElementById("name");
-        const emailInput = document.getElementById("email");
-        const messageInput = document.getElementById("message");
-
-        if (!nameInput || !emailInput || !messageInput) return;
-
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
-
-        if (formStatus) {
-            formStatus.textContent = "Sending...";
-            formStatus.style.color = "var(--muted)";
-        }
-
-        try {
-            const res = await fetch(`${API_BASE_URL}/api/contact`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ name, email, message }),
-            });
-
-            const data = await res.json();
-
-            if (res.ok) {
-                if (formStatus) {
-                    formStatus.textContent = "Message sent! I'll get back to you soon.";
-                    formStatus.style.color = "#22c55e";
-                }
-                contactForm.reset();
-            } else {
-                if (formStatus) {
-                    formStatus.textContent = data.error || "Something went wrong.";
-                    formStatus.style.color = "#F2555A";
-                }
-            }
-        } catch (err) {
-            if (formStatus) {
-                formStatus.textContent = "Network error — please try again in a moment.";
-                formStatus.style.color = "#F2555A";
-            }
-        }
-    });
-}
-
-/* =========================
-SECURE ACCESS INTRO LOADER
-========================= */
-(function initIntroLoader() {
-    const loader = document.getElementById("intro-loader");
-    if (!loader) return;
-
-    document.body.classList.add("locked");
-
-    const TOTAL_DURATION_MS = 4700; // matches the CSS animation length + small buffer
-
-    setTimeout(() => {
-        document.body.classList.remove("locked");
-        loader.remove();
-    }, TOTAL_DURATION_MS);
-})();
 
 /* =========================
 ANIMATED NETWORK BACKGROUND
@@ -427,8 +357,8 @@ fetch() call to an LLM API later if you want true generative answers.)
         projects: "A few highlights: <strong>Enterprise AWS Cloud Infrastructure with Terraform</strong>, <strong>Enterprise AWS Cloud Security Platform</strong>, and <strong>Enterprise Linux Administration & Security</strong> — plus AI-assisted cloud tooling like CloudOps Guardian and an AWS Bedrock assistant. Scroll to the Projects section, or see <a href='https://github.com/NiteshVishwakarma219' target='_blank'>his GitHub</a> for everything.",
         contact: "You can reach Nitesh directly at <a href='mailto:niteshvishwakarma8574@gmail.com'>niteshvishwakarma8574@gmail.com</a>, or connect on <a href='https://linkedin.com/in/nitesh1vishwakarma' target='_blank'>LinkedIn</a>. There's also a contact form right on this page.",
         resume: "You can download his resume directly here: <a href='/Nitesh_Vishwakarma_Resume_Cloud_DevOps.pdf' target='_blank'>Nitesh_Vishwakarma_Resume_Cloud_DevOps.pdf</a>.",
-        education: "Nitesh is pursuing a BCA specializing in Cloud Computing & Security at Amity University Online (2024–2027), currently holding an 8.45 SGPA.",
-        experience: "Nitesh's hands-on work centers on production-style AWS infrastructure built with Terraform, cloud security hardening, and Linux systems administration — all documented publicly on his GitHub as enterprise-style reference projects.",
+        education: "Nitesh is pursuing a BCA specializing in Cloud Computing & Security at Amity University (2024–2027), with a current CGPA of 7.70.",
+        experience: "Nitesh completed a 135-hour Cloud Computing Project internship at <strong>TCS iON</strong> (Jun–Aug 2026) on a cloud-based big data processing system, and a <strong>CodeAlpha</strong> Cloud Internship (Jul–Aug 2026) with sandboxed AWS deployments, Linux CLI and Docker. See the Experience section for details.",
         hire: "He's actively open to Cloud Engineer, Cloud Security, SOC Analyst, and Linux Administrator roles. The best way to follow up is email or LinkedIn — both are in the Contact section.",
         fallback: "I don't have a scripted answer for that one — but Nitesh definitely will! Try asking about his <strong>skills</strong>, <strong>projects</strong>, <strong>education</strong>, or <strong>contact</strong> info, or reach out to him directly."
     };
@@ -562,4 +492,228 @@ i.e. certificates.html — harmless no-op everywhere else.)
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
     });
+})();
+
+/* =========================
+BUSINESS SECTION: role tabs, procure-to-pay stepper, sample MIS view
+========================= */
+(function initBusiness() {
+    const panel = document.getElementById("biz-panel");
+    if (!panel) return;
+    const W = "working", F = "foundational", L = "learning";
+    const ROLES = {
+        ops: {
+            title: "Business Operations & MIS",
+            text: "I keep data clean, track KPIs and document processes so teams can act on them. Python and SQL let me automate repeat reporting.",
+            skills: [["SQL", W], ["Python automation", W], ["Documentation & SOPs", W], ["Linux", W], ["Excel (PivotTables, XLOOKUP)", F], ["Power BI", F], ["MIS reporting", F], ["RFQ, PO, GRN", F], ["Inventory tracking", F], ["B2B order processing", F], ["CRM (Zoho, HubSpot)", L], ["ERP (SAP MM/SD basics)", L]],
+            file: "Nitesh_Vishwakarma_Business_Operations_Resume.pdf", label: "Business Operations resume"
+        },
+        support: {
+            title: "Technical & Customer Support",
+            text: "I diagnose problems step by step, find the root cause and write it down so the next person fixes it faster.",
+            skills: [["Troubleshooting & RCA", W], ["Linux & Bash", W], ["Networking (DNS, TCP/IP)", W], ["Incident response", W], ["Technical documentation", W], ["Monitoring & alerts", W], ["Ticketing & SLA", F], ["Escalation handling", F], ["CRM (Zoho, HubSpot)", L]],
+            file: "Nitesh_Vishwakarma_Technical_Support_Resume.pdf", label: "Technical Support resume"
+        },
+        cloud: {
+            title: "Cloud & Infrastructure",
+            text: "I build and test AWS environments with Terraform, secure them and prove they recover from failure.",
+            skills: [["AWS (EC2, VPC, S3, RDS, IAM)", W], ["Terraform", W], ["Docker", W], ["Linux & Bash", W], ["Python & Boto3", W], ["CloudWatch & SNS", W], ["KMS & Secrets Manager", W], ["Kubernetes", L]],
+            file: "Nitesh_Vishwakarma_Resume.pdf", label: "Cloud resume"
+        }
+    };
+    const LVL = { working: "Working", foundational: "Foundational", learning: "Learning" };
+    function render(key) {
+        const r = ROLES[key];
+        panel.innerHTML = "<h3>" + r.title + "</h3><p>" + r.text + "</p><div class='biz-chips'>" +
+            r.skills.map(s => "<span class='biz-chip lvl-" + s[1] + "'>" + s[0] + " <em>" + LVL[s[1]] + "</em></span>").join("") +
+            "</div><p class='biz-legend'>Working: used in projects. Foundational: studied and practised. Learning: in progress.</p>" +
+            "<a class='btn' href='" + r.file + "' target='_blank' rel='noopener'><i class='fa-solid fa-file-arrow-down'></i> " + r.label + "</a>";
+    }
+    document.querySelectorAll(".biz-tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+            document.querySelectorAll(".biz-tab").forEach(t => { t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
+            tab.classList.add("active"); tab.setAttribute("aria-selected", "true");
+            render(tab.dataset.role);
+        });
+    });
+    render("ops");
+
+    // Procure-to-pay stepper
+    const STEPS = [
+        ["RFQ", "Request for quotation", "The buyer asks approved vendors for price, quantity and delivery terms."],
+        ["Quotation", "Compare vendor offers", "Vendors reply. The buyer compares price, delivery time and terms in a sheet."],
+        ["PO", "Purchase order", "The chosen vendor gets a purchase order. It is the formal commitment to buy."],
+        ["GRN", "Goods receipt note", "The store checks the delivered goods against the PO and records what was received."],
+        ["Invoice", "Three-way match", "Accounts match the invoice with the PO and the GRN before approving it."],
+        ["Payment", "Vendor payment", "The matched invoice is paid on its due date and the record is closed."]
+    ];
+    const stepsEl = document.getElementById("p2p-steps"), detail = document.getElementById("p2p-detail");
+    function showStep(i) {
+        stepsEl.querySelectorAll(".p2p-step").forEach((b, j) => { b.classList.toggle("active", j === i); b.classList.toggle("done", j < i); });
+        detail.innerHTML = "<strong>" + STEPS[i][0] + ": " + STEPS[i][1] + "</strong>" + STEPS[i][2];
+    }
+    STEPS.forEach((s, i) => {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "p2p-step"; b.textContent = s[0];
+        b.addEventListener("click", () => showStep(i));
+        stepsEl.appendChild(b);
+    });
+    showStep(0);
+
+    // Sample MIS view (demo data, not real business data)
+    const DATA = {
+        Q1: { North: 42, South: 58, East: 31, West: 67 },
+        Q2: { North: 51, South: 49, East: 38, West: 72 },
+        Q3: { North: 47, South: 63, East: 44, West: 59 },
+        Q4: { North: 66, South: 70, East: 52, West: 81 }
+    };
+    const chart = document.getElementById("mis-chart"), sel = document.getElementById("mis-quarter");
+    const summary = document.getElementById("mis-summary"), query = document.getElementById("mis-query");
+    function drawMis() {
+        const q = sel.value, d = DATA[q], max = Math.max(...Object.values(d));
+        const top = Object.keys(d).reduce((a, b) => d[a] >= d[b] ? a : b);
+        const total = Object.values(d).reduce((a, b) => a + b, 0);
+        chart.innerHTML = Object.keys(d).map(k => "<div class='mis-bar" + (k === top ? " top" : "") + "'><b>" + d[k] + "</b><span class='fill' style='height:0'></span></div>").join("");
+        chart.insertAdjacentHTML("afterend", "");
+        document.getElementById("mis-labels") && document.getElementById("mis-labels").remove();
+        chart.insertAdjacentHTML("afterend", "<div class='mis-labels' id='mis-labels'>" + Object.keys(d).map(k => "<span>" + k + "</span>").join("") + "</div>");
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            chart.querySelectorAll(".fill").forEach((el, i) => { el.style.height = (Object.values(d)[i] / max * 80) + "%"; });
+        }));
+        summary.textContent = q + " total: " + total + " (sample units). Top region: " + top + ".";
+        query.textContent = "SELECT region, SUM(sales) FROM orders WHERE quarter = '" + q + "' GROUP BY region;";
+    }
+    sel.addEventListener("change", drawMis);
+    drawMis();
+})();
+
+/* =========================
+3D TILT ON CARDS + CURSOR GLOW (pointer devices, respects reduced motion)
+========================= */
+(function initTiltAndGlow() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(hover: none)").matches) return;
+    document.querySelectorAll(".skill-column, .project-card, .biz-card, .cert-card").forEach(el => {
+        el.classList.add("tilt");
+        el.addEventListener("mousemove", e => {
+            const r = el.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+            el.style.transform = "perspective(900px) rotateX(" + (-y * 6) + "deg) rotateY(" + (x * 6) + "deg) translateZ(0)";
+        });
+        el.addEventListener("mouseleave", () => { el.style.transform = ""; });
+    });
+    const glow = document.getElementById("cursor-glow");
+    if (glow) {
+        window.addEventListener("mousemove", e => { glow.style.opacity = 1; glow.style.transform = "translate(" + e.clientX + "px," + e.clientY + "px)"; });
+        document.addEventListener("mouseleave", () => { glow.style.opacity = 0; });
+    }
+    const orbit = document.querySelector(".orbit-container");
+    if (orbit) {
+        window.addEventListener("mousemove", e => {
+            const x = e.clientX / window.innerWidth - 0.5, y = e.clientY / window.innerHeight - 0.5;
+            orbit.style.transform = "perspective(900px) rotateY(" + (x * 10) + "deg) rotateX(" + (-y * 10) + "deg)";
+        });
+    }
+})();
+
+
+/* =========================
+ABOUT TABS, COUNTERS, EXPERIENCE CARDS
+========================= */
+(function initAboutAndExperience() {
+    const PANES = {
+        background: "<ul><li>Final-year <strong>BCA in Cloud Computing & Security</strong> at Amity University (2024 to 2027), CGPA 7.70.</li><li>Started with Linux and networking, then built AWS projects with Terraform and Docker.</li><li>Completed the <strong>135-hour TCS iON</strong> cloud project and the <strong>CodeAlpha</strong> cloud internship in 2026.</li></ul>",
+        do: "<ul><li>Build AWS environments as code: VPC, ALB, Auto Scaling, EC2, RDS, IAM, KMS.</li><li>Write <strong>Python, Boto3 and Bash scripts</strong> to automate repeat tasks.</li><li>Set up monitoring and alerts with CloudWatch and SNS, then troubleshoot and find the root cause.</li><li>Prepare reports and follow procurement and support workflows on the business side.</li></ul>",
+        work: "<ul><li>Test failures on purpose: I confirmed automatic recovery in 3 failure scenarios.</li><li>Document every fix: I wrote up the root cause of 15+ issues in my projects.</li><li>Use least privilege and encryption by default.</li><li>Write notes so another person can repeat my work.</li></ul>",
+        next: "<ul><li>Roles: Cloud Support, Cloud Operations, System Engineer, Technical Support, Business Operations and MIS.</li><li>Availability: <strong>immediate joiner</strong>, based in Delhi, open to relocation or remote work.</li><li>Best way to reach me: email or LinkedIn from the Contact section.</li></ul>"
+    };
+    const pane = document.getElementById("about-pane");
+    if (pane) {
+        const show = k => { pane.innerHTML = PANES[k]; };
+        document.querySelectorAll(".about-tab").forEach(t => t.addEventListener("click", () => {
+            document.querySelectorAll(".about-tab").forEach(x => { x.classList.remove("active"); x.setAttribute("aria-selected", "false"); });
+            t.classList.add("active"); t.setAttribute("aria-selected", "true"); show(t.dataset.pane);
+        }));
+        show("background");
+    }
+    const counters = document.querySelectorAll("[data-count]");
+    const run = el => {
+        const end = +el.dataset.count, suf = el.dataset.suffix || "", reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) { el.textContent = end + suf; return; }
+        const t0 = performance.now(), dur = 1400;
+        (function step(t) {
+            const p = Math.min((t - t0) / dur, 1);
+            el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3))) + suf;
+            if (p < 1) requestAnimationFrame(step);
+        })(t0);
+    };
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { run(e.target); io.unobserve(e.target); } }), { threshold: 0.4 });
+    counters.forEach(c => io.observe(c));
+    document.querySelectorAll(".exp-head").forEach(h => h.addEventListener("click", () => {
+        const open = h.getAttribute("aria-expanded") === "true";
+        h.setAttribute("aria-expanded", String(!open));
+        document.getElementById(h.getAttribute("aria-controls")).hidden = open;
+    }));
+})();
+
+
+/* =========================
+HERO 3D SCENE (Three.js): cloud-network solid with orbiting nodes
+========================= */
+(function initHero3D() {
+    const canvas = document.getElementById("hero-3d");
+    if (!canvas || typeof THREE === "undefined") return;
+    const home = document.getElementById("home");
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+    camera.position.z = 9;
+
+    const group = new THREE.Group();
+    scene.add(group);
+    const shell = new THREE.Mesh(new THREE.IcosahedronGeometry(2.4, 1), new THREE.MeshBasicMaterial({ color: 0x2fd9c4, wireframe: true, transparent: true, opacity: 0.22 }));
+    const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.1, 0.28, 120, 16), new THREE.MeshBasicMaterial({ color: 0x9b8cff, wireframe: true, transparent: true, opacity: 0.25 }));
+    group.add(shell, knot);
+
+    const orbit = new THREE.Group();
+    const nodeMat = new THREE.MeshBasicMaterial({ color: 0xf2a65a });
+    for (let i = 0; i < 14; i++) {
+        const a = (i / 14) * Math.PI * 2;
+        const n = new THREE.Mesh(new THREE.SphereGeometry(0.1, 12, 12), nodeMat);
+        n.position.set(Math.cos(a) * 3.0, Math.sin(a * 2) * 0.5, Math.sin(a) * 3.0);
+        orbit.add(n);
+    }
+    group.add(orbit);
+
+    let mx = 0, my = 0, scrollY = 0, visible = true;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function resize() {
+        const w = home.clientWidth, h = home.clientHeight;
+        renderer.setSize(w, h, false);
+        camera.aspect = w / h; camera.updateProjectionMatrix();
+        const wide = w > 900;
+        group.position.x = wide ? 2.7 : 0;
+        group.position.y = wide ? 0 : -1.5;
+        group.scale.setScalar(wide ? 0.78 : 0.6);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+    window.addEventListener("mousemove", e => { mx = e.clientX / window.innerWidth - 0.5; my = e.clientY / window.innerHeight - 0.5; });
+    window.addEventListener("scroll", () => { scrollY = window.scrollY; }, { passive: true });
+    new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(home);
+
+    const clock = new THREE.Clock();
+    function frame() {
+        requestAnimationFrame(frame);
+        if (!visible) return;
+        const t = clock.getElapsedTime();
+        shell.rotation.y = t * 0.15 + mx * 1.2;
+        shell.rotation.x = t * 0.08 + my * 1.2;
+        knot.rotation.y = -t * 0.3;
+        knot.rotation.x = t * 0.2;
+        orbit.rotation.y = t * 0.4;
+        group.position.z = -scrollY * 0.004;
+        renderer.render(scene, camera);
+    }
+    if (reduce) { renderer.render(scene, camera); } else { frame(); }
 })();
